@@ -3,13 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>Hello, AMPs</title>
-        <!-- required to sync auth_id with publishers domain and Google.com domain -->
-        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
         <!-- required for the amp-consent component -->
         <script async custom-element="amp-consent" src="https://cdn.ampproject.org/v0/amp-consent-0.1.js"></script>
+        <!-- required to sync auth_id with publishers domain and Google.com domain -->
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     </head>
     <body>
-        <h1>Welcome to the mobile web</h1>
+        <h1>Welcome to the mobile web 07092021</h1>
         <amp-analytics>
             <script type=application/json>
             {
@@ -20,32 +21,31 @@
         <amp-consent id="consent" layout="nodisplay">
             <script type="application/json">
                 {
+                    "consentInstanceId": "Sourcepoint",
                     "consentRequired": "remote",
-                    "consentInstanceId": "sourcepoint",
                     "checkConsentHref": "https://sp-cdn.sp-demo.com/wrapper/tcfv2/v1/amp-v2?authId=CLIENT_ID",
                     "promptUISrc": "https://sp-cdn.sp-demo.com/amp/index.html?authId=CLIENT_ID",
+                    "mmsDomain": "https://sp-cdn.sp-demo.com",
                     "postPromptUI": "consent-ui",
                     "cookies": {
                         "enabled": true,
-                        "AMP-CONSENT": {
-                            "value": "LINKER_PARAM(authId, _a)"
-                        }
+                        "AMP-CONSENT": {    "value": "LINKER_PARAM(authId, _a)" }
                     },
                     "clientConfig": {
                         "accountId": 1732,
-                        "propertyHref": "https://amp.visitdenmark.com",
-                        "propertyId": 19110,
-                        "mmsDomain": "https://sp-cdn.sp-demo.com",
-                        "privacyManagerId": 547322,
+                        "propertyHref": "https://amp.newscriptdemo.com",
+                        "propertyId": 19118,
+                        "privacyManagerId": 547514,
                         "isTCFV2": true,
-                        "pmTab": "vendors",
+                        "pmTab": "purposes",
                         "stageCampaign": false,
-                        "targetingParams": {
-                                        "color": "red"
-                                      }
+                        "targetingParams": {    "color": "red"  }
                     }
                 }
             </script>
         </amp-consent>
+        <div id="consent-ui">
+            <button on="tap:consent.prompt(consent=SourcePoint)">Privacy Settings</button>
+        </div>
     </body>
 </html>
